@@ -1,0 +1,23 @@
+extends ../layouts/default
+
+block content
+	.container
+		each y in data.yurts
+			article.col-lg-3.col-md-4.col-sm-6
+				hr
+				if !data.yurts
+					h2 No yurts uploaded yet
+				else
+					header
+						h1= y.title
+							| 
+							span.small= y.price
+					.post
+						if y.image.exists
+							.image-wrap: img(src=y._.image.fit(750,450)).img-responsive
+						!= y.content.brief
+						.btn-group
+							a.btn.btn-primary(href='/products/'+y.key) Read More
+							a.btn.btn-primary(href='/contact/') I want one!
+			if !data.yurts
+				h2 No yurt models uploaded yet

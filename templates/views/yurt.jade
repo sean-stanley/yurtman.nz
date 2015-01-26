@@ -1,0 +1,41 @@
+extends ../layouts/default
+
+block content
+	.container
+		article
+			hr
+			if !data.yurt
+				h2 Invalid Yurt.
+			else
+				header
+					h1= data.yurt.title
+						| 
+						span.small= data.yurt.price
+				.post
+					if data.yurt.image.exists
+						.image-wrap: img(src=data.yurt._.image.fit(750,450)).img-responsive
+					!= data.yurt.content.full
+				.extras
+					h3 Construction Options
+					p below is a list of options that can be used with this type of yurt. 
+					| For enquiries about a yurt like this with the options of your choice,
+					| simply click on the options you'd like before clicking the big 'I want it'
+					| button at the bottom of the screen.
+					ul
+						each i in data.yurt.extras
+							li
+								.extra
+									if i.name
+										h4= i.name
+										.image-wrap: img(src=i._.image.fit(450,450))
+										.description
+											!= i.description
+									
+			if !data.yurts
+				h2 No yurt models uploaded yet
+			else
+				h2 See another Yurt Model
+				ul
+					each y in data.yurts
+						li
+							a(href='/yurts/'+y.key)= y.title
