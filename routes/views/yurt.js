@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
 	// Load other posts
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Yurt').model.find().sort('-price').populate('author extras')
+		var q = keystone.list('Yurt').model.find().sort('-price').populate('author extras');
 		
 		q.exec(function(err, results) {
 			locals.data.yurts = results;

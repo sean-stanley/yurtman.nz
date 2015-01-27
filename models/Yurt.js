@@ -23,12 +23,12 @@ Yurt.add({
 	},
 	price: {type: String, required: true, default: '$7000-$10,000'},
 	extras: {type: Types.Relationship, ref: 'YurtExtra', many: true}
-	// extras: [{
-// 		name: {type: String},
-// 		image: {type: Types.CloudinaryImage},
-// 		price: {type: Number},
-// 		description: {type: Types.Html, wysiwyg: true, height: 150}
-// 	}]
+	//extras: [{
+//		name: {type: String},
+//		image: {type: Types.CloudinaryImage},
+//		price: {type: Number},
+//		description: {type: Types.Html, wysiwyg: true, height: 150}
+//	}]
 });
 
 Yurt.schema.virtual('content.full').get(function() {
