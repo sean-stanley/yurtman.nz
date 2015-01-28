@@ -21,13 +21,18 @@ keystone.init({
 	'view engine': 'jade',
 	
 	'emails': 'templates/emails',
-	
+	'port': 4003,
 	'auto update': true,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': ',qI]qC.PGHJ:A9i5pPzxd+;T!-/F(pe2k~m5F>vr<rw^)xVeZ+TEJSKv+V])Mph$',
-	'session store': 'mongo',
+	'sessionStore': 'connect-redis',
+	'sessionStoreOptions': {
+		host: '127.0.0.1',
+		port: 6379,
+		db: 3
+	}
 
 });
 
