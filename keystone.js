@@ -56,7 +56,6 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 // Setup Cloudinary for image hosting and resizing
-keystone.set('cloudinary config', 'cloudinary://591328878224875:L1Mx4dO9e0Q9om_JSI5I9Lfp7GM@red-head-web' );
 keystone.set('cloudinary prefix', 'yurtman');
 keystone.set('cloudinary folders', true);
 
