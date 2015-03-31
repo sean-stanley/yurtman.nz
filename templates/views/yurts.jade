@@ -1,23 +1,40 @@
 extends ../layouts/default
 
 block content
+	.container-fluid
+		.row.header
+			img.img-responsive.banner(src="images/yurt-assembly2.jpg")
+			.header-content
+				h1.text-center Our Yurts
 	.container
-		each y in data.yurts
-			article.col-lg-3.col-md-4.col-sm-6
-				hr
+		.row
+			each y in data.yurts
+				article.col-md-4.col-sm-6
+					if !data.yurts
+						h2 No yurts uploaded yet
+					else
+						header
+							h1.text-center= y.title
+								| 
+								span.small= y.price
+						.post.text-center
+							if y.image.exists
+								.image-wrap.text-center: a(href='/products/'+y.key)
+									img(src=y._.image.thumbnail(400, 400)).img-responsive.circle-400.center-block
+							!= y.content.brief
+							.text-center
+								.btn-group
+									a.btn.btn-primary(href='/products/'+y.key) Read More
+									a.btn.btn-primary(href='/contact?yurt='+y.key) I want one!
 				if !data.yurts
-					h2 No yurts uploaded yet
-				else
-					header
-						h1= y.title
-							| 
-							span.small= y.price
-					.post
-						if y.image.exists
-							.image-wrap: img(src=y._.image.fit(750,450)).img-responsive
-						!= y.content.brief
-						.btn-group
-							a.btn.btn-primary(href='/products/'+y.key) Read More
-							a.btn.btn-primary(href='/contact/') I want one!
-			if !data.yurts
-				h2 No yurt models uploaded yet
+					h2 No yurt models uploaded yet
+		.row
+			.col-sm-4
+				h1 Windows
+				p When you order a yurt from us, we will install as many windows as you'd like and help you orient them for optimum views and natural lighting in your yurt's location.
+			.col-sm-4
+				h1 Fireplaces
+				p While a fireplace is not the only means of heating a yurt it is perhaps the most popular. We are experienced installers and flu designers for those wanting to heat their yurt with wood. Talk to me about your requirements and we'll design the best heating solution for your needs.
+			.col-sm-4
+				h1 Fabrics
+				p We use only the best fabrics in our yurts and have a range of options and colours. We recommend PVC roofing with treated canvas walls but for those wanting a lighter ecological footprint we can use other more natural materials. 

@@ -1,0 +1,159 @@
+.menu-toggle {
+	position: fixed;
+	margin-right: 15px;
+	padding: 9px 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	top: 20px;
+	left: 0;
+	margin-left: 40px;
+	z-index: 9999;
+	transition: left 0.3s ease;
+	
+}
+
+.menu-toggle .icon-bar {
+	background-color: rgba(255, 255, 255, 0.5);
+	
+}
+
+.menu-toggle .icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+}
+	
+.menu-toggle .icon-bar + .icon-bar {
+	margin-top: 4px;
+}
+
+.push-menu-left {
+	/* critical sizing and position styles */
+	width: 200px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: -200px;
+	z-index: 0;
+	transition: left 0.3s ease;
+  
+	/* non-critical appearance styles */
+/*	list-style: none;
+	background: #111;*/
+}
+
+.site-wrap {
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white; /* Needs a background or else the nav will show through */
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+	transition: left 0.3s ease;
+}
+
+.site-wrap.show, .menu-toggle.show {
+	left:200px;
+}
+
+.push-menu-left.show {
+	left:0px;
+}
+
+body {
+    /* Without this, the body has excess horizontal scroll when the menu is open */
+  overflow-x: hidden;
+}
+
+.logo-container {
+	width: 200px;
+	  text-align: center;
+	  padding: 100px 30px 30px;
+	  border-radius: 100px;
+	  background-color: #ccc;
+	  background-color: rgba(200, 200, 200, 0.5);
+	  position: absolute;
+	  z-index: 3000;
+	  left: 0;
+	  right: 0;
+	  top: -100px;
+	  margin-left: auto;
+	  margin-right: auto;
+}
+
+.logo-container > h1, h1 {
+	font-family: 'Rationale', sans-serif;
+}
+
+h2, .oswald {
+	font-family: 'Oswald', sans-serif;
+}
+
+/* HOME PAGE */
+
+.home-slider{
+	padding: 30px 0;
+}
+
+.home-slider-item img{
+	border-radius: 320px;
+	border: 5px solid #fff;
+	margin: 5em 0;
+	
+}
+
+.home-slider-item {
+	padding: 10px;
+}
+.slick-center {
+  -moz-transform: scale(1.28);
+  -ms-transform: scale(1.28);
+  -o-transform: scale(1.28);
+  -webkit-transform: scale(1.28);
+  transform: scale(1.28);
+	transition: 0.2s all ease-in;
+}
+
+
+/* PRODUCTS PAGE */
+.header {position: relative;}
+
+.header img {
+	-webkit-box-shadow: 0 10px 10px 0 rgba(0,0,0,0.33);
+	box-shadow: 0 10px 10px 0 rgba(0,0,0,0.33);
+	z-index:-2;
+}
+
+@media (min-width: 768px) {
+	.header-content h1 {
+		margin-top: 150px;
+		color:white;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top:0;
+		font-size: 7em;
+		text-shadow: 0 0 2px #000, 0 0 10px #000, 0 0 15px #000, 0 0 20px #000;
+	}
+	.up {margin-top: -100px;}
+}
+
+.circle-400 {border-radius: 200px; border: 3px solid #2f86eb;}
+.circle-750 {border-radius: 325px; border: 3px solid #2f86eb;}
+
+
+
+
+
+
+
+
+

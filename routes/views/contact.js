@@ -11,6 +11,9 @@ exports = module.exports = function(req, res) {
 	locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
 	locals.formData = req.body || {};
 	locals.yurtRequest = req.query || '';
+	locals.data = {
+		yurt : req.query.yurt
+	};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
 	

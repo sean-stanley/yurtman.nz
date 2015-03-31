@@ -22,11 +22,12 @@ mixin post(post)
 		if post.content.extended
 			p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
-block intro
-	.container
-		h1= data.category ? data.category.name : 'Blog'
-
 block content
+	.container-fluid
+		.row.header
+			img.img-responsive.banner(src="/images/old-yurt.jpg")
+			.header-content
+				h1.text-center= data.category ? data.category.name : 'Yurt Articles'
 	.container: .row
 		.col-sm-8.col-md-9
 			if filters.category && !data.category

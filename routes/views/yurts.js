@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	// Set locals
-	locals.section = 'yurt';
+	locals.section = 'yurts';
 	locals.filters = {
 		yurt: req.params.yurt
 	};

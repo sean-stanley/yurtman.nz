@@ -85,7 +85,7 @@ keystone.set('email locals', {
 
 keystone.set('email rules', [{
 	find: '/images/',
-	replace: (keystone.get('env') == 'production') ? 'http://www.yurtman.nz/images/' : 'http://localhost:3000/images/'
+	replace: (keystone.get('env') == 'production') ? 'http://www.yurtman.nz/public/images/' : 'http://localhost:3000/public/images/'
 }, {
 	find: '/keystone/',
 	replace: (keystone.get('env') == 'production') ? 'http://www.yurtman.nz/keystone/' : 'http://localhost:3000/keystone/'

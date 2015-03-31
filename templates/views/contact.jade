@@ -1,16 +1,20 @@
 extends ../layouts/default
-
-block intro
-	.container
-		h1 Contact Us
 		
 block content
+	.container-fluid
+		.row.header
+			img.img-responsive.banner(src="/images/contact.jpg")
+			.header-content
+				h1.text-center= !!data.yurt ? data.yurt : 'Contact Us'
+	if data.yurt
+		h1.text-center= data.yurt
 	.container
 		if enquirySubmitted
 			h3 Thanks for getting in touch.
 		else
 			.row: .col-sm-8.col-md-6
 				form(method='post')
+					h2 Contact Form
 					input(type='hidden', name='action', value='contact')
 					.form-group(class=validationErrors.name ? 'has-error' : null)
 						label Name
@@ -23,10 +27,14 @@ block content
 						input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
 					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
 						label What are you contacting us about?
-						select(name='enquiryType').form-control
-							option(value='') (select one)
-							each type in enquiryTypes
-								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+						select.form-control(name='enquiryType')
+							if data.yurt
+								option(value='sale') I'm interested in the 
+									span= data.yurt
+							else
+								option(value='') (select one)
+								each type in enquiryTypes
+									option(value=type.value, selected=formData.enquiryType == type.value)= type.label
 					.form-group(class=validationErrors.message ? 'has-error' : null)
 						label Message
 						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message

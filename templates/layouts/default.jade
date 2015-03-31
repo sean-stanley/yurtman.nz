@@ -12,8 +12,15 @@ html
 		title= title || 'Yurt Man NZ'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
-		//- Customise the stylesheet for your site by editing /public/styles/site.sass
-		link(href="/styles/site.css", rel="stylesheet")
+		//- Customise the stylesheet for your site by editing /public/styles/site.scss
+		// link(href="/styles/custom.css", rel="stylesheet")
+		link(href="/styles/paper.css", rel="stylesheet")
+		
+		link(href="/js/lib/slick-1.4.1/slick/slick.css" rel="stylesheet")
+		link(href="/js/lib/slick-1.4.1/slick/slick-theme.css" rel="stylesheet")
+		
+		link(href='http://fonts.googleapis.com/css?family=Rationale|Oswald' rel='stylesheet' type='text/css')
+		link(href="/styles/custom.css", rel="stylesheet")
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
 		if user && user.canAccessKeystone
@@ -34,37 +41,31 @@ html
 
 	//- HTML BODY
 	body
-
+	
+		ul.nav.nav-pills.nav-stacked.push-menu-left
+			each link in navLinks
+				li(class=(section == link.key ? 'active' : null) style="width: 200px"): a(href=link.href)= link.label
+			if user
+				if user.canAccessKeystone
+					li: a(href='/keystone') Open Keystone
+				li: a(href='/keystone/signout') Sign Out
+			//- else 
+				//- li: a(href='/keystone/signin') Sign In
+		
 		//- HEADER
-		#header: .container
-
-			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
-			//- ... or completely change this header to suit your design.
-
-			div(role="navigation").navbar.navbar-default
-				.container-fluid
-					.navbar-header
-						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-							span.sr-only Toggle navigation
-							span.icon-bar
-							span.icon-bar
-							span.icon-bar
-						a.navbar-brand(href='/') Yurt Man NZ
-					.collapse.navbar-collapse
-						ul.nav.navbar-nav.navbar-left
-							each link in navLinks
-								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-						ul.nav.navbar-nav.navbar-right
-							if user
-								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
-								li: a(href='/keystone/signout') Sign Out
-							else
-								li: a(href='/keystone/signin') Sign In
-
+		#header: .container-fluid
+		
 		//- BODY
-		#body
-
+		#body.site-wrap
+			button#menu-toggle.menu-toggle
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			
+			
+			.logo-container
+				img.img-responsive(src='/images/yurt-logo.png')
+			
 			//- NOTE:
 			//- There is no .container wrapping class around body blocks to allow more flexibility in design.
 			//- Remember to include it in your templates when you override the intro and content blocks!
@@ -84,7 +85,9 @@ html
 		.container: #footer
 
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			//p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+			br
+			.row
+				p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
 
 
 		//- JAVASCRIPT
@@ -97,6 +100,8 @@ html
 		//- Customise which Bootstrap javascript files are served by including
 		//- them specifically here, instead of bootstrap-3.2.0.min.js
 		script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')
+		script(src='/js/lib/slick-1.4.1/slick/slick.js')
+		script(src="/js/main.js")
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone

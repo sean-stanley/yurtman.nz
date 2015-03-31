@@ -1,23 +1,43 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome
-		p This is your new <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
+	.container-fluid
+		.row
+			.home-slider(style="background-color: #222")
+				.home-slider-item
+					img.img-responsive(src="images/yurt-banner-interior.JPG" alt="..." )
+			
+				.home-slider-item
+					img.img-responsive(src="images/yurt-exterior.JPG" alt="...")
+				
+				.home-slider-item
+					img.img-responsive(src="images/yurt-in-field.JPG" alt="..." )
+				
+				.home-slider-item
+					img.img-responsive(src="images/yurt-exterior-profile.JPG" alt="...")
+		
+		h1.text-center Yurt Man's Yurts
+		.row
+			.col-md-6
+				h3
+					strong Yurt 
+					| (yoort) noun
+				p.lead a tentlike dwelling of the Mongol and Turkic peoples of central Asia, consisting of a cylindrical wall of poles in a lattice arrangement with a conical roof of poles, both covered by felt or skins.
+			.col-md-6
+				br
+				img.img-responsive.circle-750.center-block(src="images/yurt-assembly.jpg")
 		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone/signin').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>sean@maplekiwi.com</strong> and the password <strong>12345678</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
+		.row
+			.col-md-6
+				br
+				img.img-responsive.circle-750.center-block(src="images/yurtshop L1.jpg")
+			.col-md-6
+				h3
+					strong My Yurts
+				p.lead a sturdy structure that will last decades even in New Zealand's climate. Each yurt is specially made and outfitted to the customer's specifications and installed on site. The yurt still feels like a traditional mongolian yurt but has had western engineering and technology used to strengthen and mondernize the classic design. 
+				p.lead My yurts have a thick rosewood lattice to provide stability and to avoid the health consequences of treated timber. Instead of traditional skins and felts the yurts have wool insulation and either a treated canvas cover or PVC cover to ensure watertightness.
+				p.lead Fireplaces, windows, electrical, and plumbing are all available extras that add to the comfort of a yurt.
+				.btn-group
+					a.btn.btn-lg.btn-primary(href="/products") Yurt Options
+					a.btn.btn-lg.btn-default(href="/contact") Contact Me
 		hr
-		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
